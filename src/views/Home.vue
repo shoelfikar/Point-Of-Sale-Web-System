@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Navbar from '../components/Home/Navbar';
-import Content from '../components/Home/Content';
+import Navbar from "../components/Home/Navbar";
+import Content from "../components/Home/Content";
 
 export default {
   name: "Home",
@@ -17,7 +17,6 @@ export default {
   }
 };
 </script>
-<style  lang="scss">
-  @import '../assets/scss/Home/_home.scss';
-  
+<style lang="scss">
+@import "../assets/scss/Home/_home.scss";
 </style>

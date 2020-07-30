@@ -24,12 +24,11 @@
 </template>
 
 <script>
-  export default {
-    name: 'Sidebar'
-  }
+export default {
+  name: "Sidebar"
+};
 </script>
 
 <style lang="scss">
-  @import '../../assets/scss/Home/_home.scss';
-
+@import "../../assets/scss/Home/_home.scss";
 </style>
