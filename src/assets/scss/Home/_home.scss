@@ -54,16 +54,22 @@
         height: 80px;
         margin-bottom: 25px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        p{
+          display: none;
+        }
         &:hover{
           background-color: #67b0e0;
-          img{
-            fill: #fff;
-          }
           .svg{
             fill: #fff;
+            margin-bottom: 5px;
+          }
+          p{
+            display: block;
+            color: #fff;
           }
         }
       }
@@ -71,12 +77,13 @@
     .category{
       width: 5%;
       height: 100%;
+      transition: .5s;
       background-color: #f2f2f2;
       .category-menu{
         width: 100%;
         height: 280px;
         margin-top: 30px;
-        border-radius: 5px;
+        border-radius: 3px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -87,22 +94,30 @@
           height: 80px;
           margin-top: 10px;
           font-size: 12px;
-          border-radius: 5px;
+          border-radius: 3px;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          cursor: pointer;
           background-color: #fff;
           .img-category{
             width: 90%;
             height: 50px;
             border: 1px solid #c5c5c5;
-            border-radius: 5px;
+            border-radius: 3px;
             display: flex;
             justify-content: center;
             align-items: center;
           }
         }
+      }
+    }
+    .hide{
+      width: 0;
+      height: 0;
+      .category-menu{
+        display: none;
       }
     }
     .content-menu{
@@ -111,6 +126,7 @@
       background-color: #f2f2f2;
       display: flex;
       flex-direction: column;
+      transition: .5s;
       .list-menu{
         width: 100%;
         height: 100%;
@@ -129,6 +145,7 @@
           flex-direction: column;
           justify-content: space-between;
           background-color: #f4f6fa;
+          cursor: pointer;
           .menu-img{
             width:100%;
             height: 160px;
@@ -193,6 +210,10 @@
             }
           }
         }
+        .check{
+          box-sizing: border-box;
+          border: 5px solid blue;
+        }
       }
       .pagination{
         width: 35%;
@@ -225,6 +246,14 @@
               }
             }
           }
+        }
+      }
+    }
+    .show{
+      width: 62%;
+      .list-menu{
+        .item{
+          margin-left: 30px;
         }
       }
     }
@@ -350,6 +379,17 @@
               font-size: 14px;
               font-weight: bold;
             }
+          }
+        }
+        .empty-cart{
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          h2{
+            font-size: 20px;
+            color: #c5c5c5;
           }
         }
       }

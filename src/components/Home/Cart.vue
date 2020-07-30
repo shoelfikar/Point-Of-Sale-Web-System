@@ -9,46 +9,50 @@
         <svg class="svg" width="40px" height="40px">
           <use xlink:href="../../assets/img/icon/notif.svg#notifikasi"></use>
         </svg>
-        <span>1</span>
+        <span>{{cartItems.length}}</span>
       </div>
     </div>
     <div class="cart-items">
-      <div class="cart-item">
+      <div class="cart-item" v-for="cart in cartItems" :key="cart.id">
         <div class="img-item">
           <img
-            src="https://drive.google.com/uc?export=view&id=1ulOvJmayp3O5fO9bVPG1P93bKZn1Yyxt"
+            :src="cart.data.imageUrl"
             alt=""
             width="90"
           />
         </div>
         <div class="info-item">
           <div class="title-item">
-            <p>Nasi Kuning Ayam dibakar</p>
+            <p>{{cart.data.name}}</p>
           </div>
           <div class="qty-item">
-            <button class="decrement">-</button>
-            <input type="text" value="1" disabled />
-            <button class="increment">+</button>
+            <button class="decrement" @click="decrement(cart)">-</button>
+            <input type="text" :value="cart.count" disabled />
+            <button class="increment" @click="increment(cart)">+</button>
           </div>
         </div>
         <div class="price-item">
-          <p>Rp 2.500.000</p>
+          <p>Rp {{cart.data.price * cart.count}}</p>
         </div>
+      </div>
+      <div class="empty-cart" v-if="cartItems.length === 0">
+        <img src="../../assets/img/icon/undraw_empty_xct9.svg" alt="" width="300">
+        <h2>Cart is empty</h2>
       </div>
     </div>
     <div class="payment">
       <div class="payment-info">
         <div class="payment-total">
           <p>Total</p>
-          <p>Rp 2.500.000</p>
+          <p>Rp.{{total}}</p>
         </div>
         <div class="payment-total">
           <p>PPN</p>
-          <p>Rp. 25.000</p>
+          <p>Rp.{{ppn}}</p>
         </div>
         <div class="payment-total">
           <p>Subtotal</p>
-          <p>Rp 2.225.000</p>
+          <p>Rp.{{subTotal}}</p>
         </div>
       </div>
       <div class="payment-aksi">
@@ -60,8 +64,37 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: "Cart"
+  name: "Cart",
+  computed: {
+    ...mapState('product', ['cartItems']),
+    ...mapState('product', ['total']),
+    ...mapState('product', ['ppn']),
+    ...mapState('product', ['subTotal']),
+  },
+  methods: {
+    increment(data) {
+      this.$store.commit('product/INCREMENT', data);
+    },
+    decrement(data) {
+      this.$store.commit('product/DECREMENT', data)
+    },
+    totalCart() {
+      this.$store.commit('product/TOTAL_CART')
+    },
+    totalPpn() {
+      this.$store.commit('product/PPN')
+    },
+    totalPayment() {
+      this.$store.commit('product/SUB_TOTAL')
+    }
+  },
+  updated () {
+    this.totalCart()
+    this.totalPpn()
+    this.totalPayment()
+  }
 };
 </script>
 

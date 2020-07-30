@@ -1,7 +1,7 @@
 <template>
-  <div class="content-menu">
+  <div class="content-menu show">
     <div class="list-menu">
-      <div class="item" v-for="item in allProduct" :key="item.id">
+      <div class="item" v-for="item in allProduct" :key="item.id" @click="addItem(item)">
         <div class="menu-img">
           <img
             :src="item.imageUrl"
@@ -41,7 +41,10 @@ export default {
     ...mapState('product', ['allProduct']),
   },
   methods: {
-    ...mapActions('product', ['getAllMenu'])
+    ...mapActions('product', ['getAllMenu']),
+    addItem(data) {
+      this.$store.commit('product/ADD_TO_CART', { data, count: 1, ppn: 0.1 });
+    }
   },
   mounted () {
     this.getAllMenu(localStorage.token)

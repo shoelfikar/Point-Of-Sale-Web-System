@@ -1,22 +1,33 @@
 <template>
-  <div class="category">
+  <div class="category hide">
     <div class="category-menu">
-      <div class="category-item">
+      <div class="category-item" v-for="cat in allCategory" :key="cat.id">
         <div class="img-category">
-          <img src="https://drive.google.com/uc?export=view&id=1NyAKWnfFBVkkLLr03JHc1ABF1qZbGVsK" alt="" width="35">
+          <img :src="cat.imageUrl" alt="" width="35">
         </div>
-        <p>Beverage</p>
+        <p>{{cat.name}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapState } from 'vuex'
   export default {
-    name: 'Category'
+    name: 'Category',
+    computed: {
+      ...mapState('category', ['allCategory'])
+    },
+    methods: {
+      ...mapActions('category', ['getAllCategory'])
+    },
+     mounted () {
+    this.getAllCategory(localStorage.token)
+  }
   }
 </script>
 
 <style lang="scss">
   @import "../../assets/scss/Home/_home.scss";
+  
 </style>

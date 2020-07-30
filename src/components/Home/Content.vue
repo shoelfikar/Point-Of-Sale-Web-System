@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <Sidebar />
+    <Sidebar  />
     <Category />
     <MenuItem />
     <Cart />
