@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import Navbar from "../components/Home/Navbar";
 import Content from "../components/Home/Content";
 
@@ -14,6 +15,15 @@ export default {
   components: {
     Navbar,
     Content
+  },
+  computed: {
+    ...mapState('category', ['allCategory'])
+  },
+  methods: {
+    ...mapActions('category', ['getAllCategory'])
+  },
+  mounted () {
+    this.getAllCategory(localStorage.token)
   }
 };
 </script>

@@ -20,7 +20,9 @@ export default {
         axios
           .post(process.env.VUE_APP_BASE_URL + "auth/login", data)
           .then(res => {
-            console.log(res);
+            console.log(res)
+            localStorage.setItem("token", res.data.data.access_token.token)
+            localStorage.setItem("refresh_token", res.data.data.access_token.refresh_token)
             resolve(res)
           })
           .catch(err => {

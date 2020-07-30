@@ -5,7 +5,7 @@
         <use xlink:href="../../assets/img/icon/items.svg#item"></use>
       </svg>
     </div>
-    <div class="side-menu category">
+    <div class="side-menu">
       <svg class="svg" width="40px" height="40px">
         <use xlink:href="../../assets/img/icon/list.svg#category"></use>
       </svg>

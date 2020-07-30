@@ -1,44 +1,54 @@
 <template>
   <div class="content-menu">
     <div class="list-menu">
-      <div class="item">
+      <div class="item" v-for="item in allProduct" :key="item.id">
         <div class="menu-img">
           <img
-            src="https://drive.google.com/uc?export=view&id=1ulOvJmayp3O5fO9bVPG1P93bKZn1Yyxt"
+            :src="item.imageUrl"
             alt=""
           />
         </div>
         <div class="menu-price">
-          <p>Rp.100.000</p>
+          <p>Rp.{{item.price}}</p>
         </div>
         <div class="menu-name">
-          <img
-            src="https://drive.google.com/uc?export=view&id=1FZg3slUpomIHEBwoOAbIjJ35ju0O2ug8"
-            alt=""
-            width="28"
-          />
-          <p>Big Double Burger</p>
+          <p>{{item.name}}</p>
+        </div>
+        <div class="category-menu">
+          <p>{{item.merchant.outlet.category.name}}</p>
         </div>
         <div class="review">
-          <i class="far fa-eye">Review</i>
-          <i class="fas fa-star mr-1">Rating</i>
+          <i class="far fa-eye"> {{item.review}}</i>
+          <i class="fas fa-star" v-for="star in item.rating" :key="star.id"></i>
         </div>
       </div>
     </div>
-    <Pagination />
   </div>
 </template>
 
 <script>
-import Pagination from "../Home/Pagination";
+import { mapActions, mapState } from 'vuex'
 export default {
   name: "MenuItem",
+  data (){
+    return {
+      product: this.allProduct
+    }
+  },
   components: {
-    Pagination
-  }
+  },
+  computed: {
+    ...mapState('product', ['allProduct']),
+  },
+  methods: {
+    ...mapActions('product', ['getAllMenu'])
+  },
+  mounted () {
+    this.getAllMenu(localStorage.token)
+  },
 };
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/Home/_home.scss";
+  @import "../../assets/scss/Home/_home.scss";
 </style>
