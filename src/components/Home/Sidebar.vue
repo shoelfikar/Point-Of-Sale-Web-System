@@ -6,7 +6,7 @@
       </svg>
       <p>Product</p>
     </div>
-    <div class="side-menu" @click="showCategory">
+    <div class="side-menu mycat" @click="showCategory">
       <svg class="svg" width="40px" height="40px" >
         <use xlink:href="../../assets/img/icon/list.svg#category"></use>
       </svg>
@@ -24,6 +24,12 @@
         <use xlink:href="../../assets/img/icon/shop.svg#cashier"></use>
       </svg>
       <p>Orders</p>
+    </div>
+    <div class="side-menu phone-cat">
+      <svg class="svg" width="40px" height="40px" >
+        <use xlink:href="../../assets/img/icon/list.svg#category"></use>
+      </svg>
+      <p>Category</p>
     </div>
     <div class="side-menu logout">
       <svg class="svg" width="40px" height="40px" @click="logout">
@@ -70,5 +76,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../assets/scss/Home/_home.scss";
+  @import "../../assets/scss/Home/_home.scss";
 </style>

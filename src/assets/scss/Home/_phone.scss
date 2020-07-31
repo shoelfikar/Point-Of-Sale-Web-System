@@ -14,6 +14,9 @@
     .content{
       .sidebar{
         width: 20%;
+        .mycat{
+          display: none;
+        }
         .mycart{
           position: relative;
           display: flex;
@@ -34,6 +37,12 @@
             background-color: red;
           }
         }
+        .phone-cat{
+          display: flex;
+        }
+        .cashier{
+          display: none;
+        }
       }
       .content-menu{
         width: 80%;
@@ -42,6 +51,12 @@
             margin-left: 22px;
           }
         }
+      }
+      .cat-phone{
+        
+      }
+      .content-phone{
+        width: 65%;
       }
       .phone-view{
         display: none;

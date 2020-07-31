@@ -42,8 +42,14 @@ export default {
             }
           )
           .then(res => {
+            localStorage.setItem("username", res.data.data.user.username)
+            localStorage.setItem("token", res.data.data.access_token.token)
+            localStorage.setItem("refresh_token", res.data.data.access_token.refresh_token)
             resolve(res);
-          });
+          })
+          .catch(err => {
+            console.log(err)
+          })
       });
     }
   }

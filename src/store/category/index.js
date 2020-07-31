@@ -25,7 +25,6 @@ export default {
           }
         )
         .then(res => {
-          console.log(res.data.data)
           context.commit("getCategory", res.data.data);
         })
         .catch(err => {

@@ -12,6 +12,7 @@
       width: 100%;
       height: 100%;
       display: flex;
+      box-sizing: border-box;
       justify-content: space-between;
       align-items: center;
       .menu-item{
@@ -81,6 +82,9 @@
       .mycart{
         display: none;
       }
+      .phone-cat{
+        display: none;
+      }
     }
     .category{
       width: 5%;
@@ -122,8 +126,7 @@
       }
     }
     .hide{
-      width: 0;
-      height: 0;
+      display: none;
       .category-menu{
         display: none;
       }
@@ -139,6 +142,7 @@
         width: 100%;
         height: 100%;
         margin-top: 5px;
+        box-sizing: border-box;
         display: flex;
         flex-wrap: wrap;
         overflow: hidden;

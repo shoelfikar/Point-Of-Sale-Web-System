@@ -55,4 +55,5 @@ export default {
 <style lang="scss">
   @import "../../assets/scss/Home/_home.scss";
   @import "../../assets/scss/Home/_phone.scss";
+  @import "../../assets/scss/Home/_tablet.scss";
 </style>
