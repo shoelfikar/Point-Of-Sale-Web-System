@@ -25,12 +25,6 @@
       </svg>
       <p>Orders</p>
     </div>
-    <div class="side-menu phone-cat">
-      <svg class="svg" width="40px" height="40px" >
-        <use xlink:href="../../assets/img/icon/list.svg#category"></use>
-      </svg>
-      <p>Category</p>
-    </div>
     <div class="side-menu logout">
       <svg class="svg" width="40px" height="40px" @click="logout">
         <use xlink:href="../../assets/img/icon/logout.svg#logout"></use>
@@ -54,6 +48,12 @@ export default {
       category.classList.toggle('hide')
       content.classList.toggle('show')
     },
+    // categoryPhone() {
+    //   const category = document.querySelector('.category')
+    //   const content = document.querySelector('.content-menu')
+    //   category.classList.toggle('cat-phone')
+    //   content.classList.toggle('content-phone')
+    // },
     showCart() {
       const cart = document.querySelector('.cart')
       const content = document.querySelector('.content-menu')

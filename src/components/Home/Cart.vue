@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="payment-aksi">
-        <button class="btn-cancel">Cancel</button>
+        <button class="btn-cancel" @click="cancel">Cancel</button>
         <button class="btn-payment">Pay Now</button>
       </div>
     </div>
@@ -96,6 +96,9 @@ export default {
     },
     getDate() {
       this.$store.commit('product/GET_DATE')
+    },
+    cancel() {
+      this.$store.commit('product/CANCEL_ORDER')
     }
   },
   mounted () {

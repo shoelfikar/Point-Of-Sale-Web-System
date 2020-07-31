@@ -89,7 +89,10 @@ export default {
     },
     SUB_TOTAL (state) {
       state.subTotal = state.total + state.ppn
-    }
+    },
+    CANCEL_ORDER (state) {
+      state.cartItems = [];
+    },
   },
   actions: {
     getAllMenu(context,token) {
