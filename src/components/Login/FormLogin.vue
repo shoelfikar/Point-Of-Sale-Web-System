@@ -39,7 +39,7 @@ export default {
       })
       .then(res => {
         console.log(res)
-        this.$router.push("/");
+        this.$router.push("/home");
       })
     }
   }
