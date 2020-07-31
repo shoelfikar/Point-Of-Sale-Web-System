@@ -10,6 +10,8 @@ export default {
   state: {
     allProduct: [],
     cartItems: [],
+    invoice: 'INV',
+    date: null,
     total: 0,
     ppn: 0,
     subTotal: 0
@@ -17,6 +19,28 @@ export default {
   mutations: {
     GET_MENU(state, data) {
       state.allProduct = data;
+    },
+    GET_INVOICE (state) {
+      const b = new Date().getDate().toString();
+      const c = new Date().getMonth() + 1;
+      const d = new Date().getFullYear().toString();
+      const f = String(c);
+      let a = Math.floor(100000 + Math.random() * 900000);
+      a = String(a);
+      a = a.substring(0, 4);
+      const e = d + f + b;
+      state.invoice += e + a;
+    },
+    GET_DATE (state) {
+      const days = ['Senin', 'Selasa', 'Rabu', 'Kamis', `Jum'at`, 'Sabtu', 'Minggu']
+      const a = new Date().getDay()
+      const b = new Date().getDate().toString();
+      const c = new Date().getMonth() + 1;
+      const d = new Date().getFullYear().toString();
+      const f = String(c);
+      console.log(a)
+      const today = days[a -1]
+      state.date = `${today}, ${b} - ${f} - ${d}`
     },
     ADD_TO_CART(state, data) {
       const items = state.cartItems.find(

@@ -1,0 +1,15 @@
+@media only screen and (max-width:600px) {
+  .container{
+    background-color: #64a5ff;
+    color: #fff;
+    .container-login{
+      width: 100%;
+      .form-login{
+        border: 1px solid #fff;
+      }
+    }
+    .cover{
+      display: none;
+    }
+  }
+}

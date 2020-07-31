@@ -1,0 +1,104 @@
+@media only screen and (max-width:500px) {
+  .home{
+    .navbar{
+      .navbar-items{
+        .menu-item{
+          margin-left: 5%;
+        }
+        .title-item{
+          display: none;
+        }
+      }
+    }
+    .content{
+      .sidebar{
+        width: 20%;
+        .mycart{
+          position: relative;
+          display: flex;
+          span{
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            line-height: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 17px;
+            border: 1px solid #fff;
+            color: #fff;
+            background-color: red;
+          }
+        }
+      }
+      .content-menu{
+        width: 80%;
+        .list-menu{
+          .item{
+            margin-left: 22px;
+          }
+        }
+      }
+      .phone-view{
+        display: none;
+      }
+      .cart{
+        display: none;
+      }
+      .show-cart{
+        width: 80%;
+        display: flex;
+        .notif{
+          .date-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            p{
+              padding: 5px;
+            }
+          }
+          .notif-items{
+            display: none;
+          }
+        }
+        .cart-items{
+          .cart-item{
+            .img-item{
+              img{
+                width: 60px;
+              }
+            }
+            .info-item{
+              .title-item{
+                p{
+                  margin-top: 10px;
+                  font-size: 13px;
+                }
+              }
+              .qty-item{
+                button{
+                  width: 30px;
+                  height: 30px;
+                }
+                input{
+                  width: 25px;
+                  height: 24px;
+                }
+              }
+            }
+            .price-item{
+              p{
+                font-size: 13px;
+                font-weight: 900;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

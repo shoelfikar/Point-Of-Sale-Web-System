@@ -2,12 +2,12 @@
   <div class="cart">
     <div class="notif">
       <div class="date-info">
-        <p>Monday, 30 - Juli - 2020</p>
-        <p>INV1234567</p>
+        <p>{{date}}</p>
+        <p v-if="cartItems.length !== 0">{{invoice}}</p>
       </div>
       <div class="notif-items">
         <svg class="svg" width="40px" height="40px">
-          <use xlink:href="../../assets/img/icon/notif.svg#notifikasi"></use>
+          <use xlink:href="../../assets/img/icon/shopping-cart.svg#shopping-cart"></use>
         </svg>
         <span>{{cartItems.length}}</span>
       </div>
@@ -72,6 +72,8 @@ export default {
     ...mapState('product', ['total']),
     ...mapState('product', ['ppn']),
     ...mapState('product', ['subTotal']),
+    ...mapState('product', ['invoice']),
+    ...mapState('product', ['date'])
   },
   methods: {
     increment(data) {
@@ -88,7 +90,17 @@ export default {
     },
     totalPayment() {
       this.$store.commit('product/SUB_TOTAL')
+    },
+    getInvoice() {
+      this.$store.commit('product/GET_INVOICE')
+    },
+    getDate() {
+      this.$store.commit('product/GET_DATE')
     }
+  },
+  mounted () {
+    this.getInvoice()
+    this.getDate()
   },
   updated () {
     this.totalCart()
