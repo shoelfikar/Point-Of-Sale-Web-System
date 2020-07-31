@@ -7,7 +7,8 @@ Vue.use(Vuex);
 export default {
   namespaced: true,
   state: {
-    errorMsg: ""
+    errorMsg: "",
+    username: localStorage.getItem("username")
   },
   mutations: {
     getMsg(state, data) {
@@ -20,7 +21,7 @@ export default {
         axios
           .post(process.env.VUE_APP_BASE_URL + "auth/login", data)
           .then(res => {
-            console.log(res)
+            localStorage.setItem("username", res.data.data.user.username)
             localStorage.setItem("token", res.data.data.access_token.token)
             localStorage.setItem("refresh_token", res.data.data.access_token.refresh_token)
             resolve(res)
@@ -29,6 +30,21 @@ export default {
             console.log(err);
           });
       })
+    },
+    refreshToken(refresh) {
+      return new Promise(resolve => {
+        axios
+          .post(
+            process.env.VUE_APP_BASE_URL + "auth/token/refresh", {
+              headers: {
+                'Authorization': `Bearer ${refresh}`
+              }
+            }
+          )
+          .then(res => {
+            resolve(res);
+          });
+      });
     }
   }
 };

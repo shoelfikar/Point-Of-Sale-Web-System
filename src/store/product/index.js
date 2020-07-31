@@ -38,7 +38,6 @@ export default {
       const c = new Date().getMonth() + 1;
       const d = new Date().getFullYear().toString();
       const f = String(c);
-      console.log(a)
       const today = days[a -1]
       state.date = `${today}, ${b} - ${f} - ${d}`
     },

@@ -8,16 +8,33 @@
         <h1>Point Of Sale - System</h1>
       </div>
       <div class="profil-item">
-        <p>Sulfikardi</p>
-        <p class="profil-img">S</p>
+        <p>{{username}}</p>
+        <p class="profil-img">{{iconProfil}}</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  data () {
+    return {
+      iconProfil: ''
+    }
+  },
+  computed: {
+    ...mapState('user', ['username'])
+  },
+  methods: {
+    profil() {
+      this.iconProfil = this.username.slice(0,1).toUpperCase()
+    }
+  },
+  mounted() {
+    this.profil()
+  }
 };
 </script>
 
